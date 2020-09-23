@@ -1,1 +1,2 @@
-# K_Mean
+# Thuật toán phân cụm K_Mean
+
