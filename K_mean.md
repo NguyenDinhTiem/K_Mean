@@ -1,3 +1,13 @@
+#Thuật toán phân cụm Kmean
+
+Chúng ta sẽ làm một ví dụ đơn giản. Trước hết, ta tạo tâm cụm và dữ liệu cho
+từng cụm bằng cách lấy mẫu theo phân phối chuẩn có kỳ vọng là tâm của cụm
+đó và ma trận hiệp phương sai là ma trận đơn vị. Ở đây, hàm cdist trong scipy.
+spatial.distance được dùng để tính khoảng cách giữa các cặp điểm trong hai tập
+hợp một cách hiệu quả
+Dữ liệu được tạo bằng cách lấy ngẫu nhiên 500 điểm cho mỗi cụm theo phân phối
+chuẩn có kỳ vọng lần lượt là (2, 2), (8, 3) và (3, 6); ma trận hiệp phương sai
+giống nhau và là ma trận đơn vị.
 ```python
 from __future__ import print_function
 import numpy as np
@@ -67,7 +77,8 @@ print('Centers found by our algorithm:\n', centroids[-1])
      [1.9834967  1.96588127]]
     
 
-
+Để kiểm tra thêm, chúng ta hãy so sánh kết quả trên với kết quả thu được bằng
+cách sử dụng thư viện scikit−learn.
 ```python
 #Thuat toan kmean viet bang thu vien Scikit-lean
 from sklearn.cluster import KMeans
@@ -83,8 +94,14 @@ pred_label = model.predict(X)
      [8.07476866 3.01494931]
      [3.02429957 5.95334038]]
     
-
-
+#Bai toán phân cụm chữ số viết tay
+MNIST [LCB10] là bộ cơ sở dữ liệu lớn nhất về chữ số viết tay và được sử dụng
+trong hầu hết các thuật toán phân loại hình ảnh. MNIST bao gồm hai tập con:
+tập huấn luyện có 60 nghìn mẫu và tập kiểm tra có 10 nghìn mẫu. Tất cả đều đã
+được gán nhãn.Mỗi bức ảnh là một ảnh xám (chỉ có một kênh), có kích thước 28 × 28 điểm ảnh
+(tức 784 điểm ảnh). Mỗi điểm ảnh mang giá trị là một số tự nhiên từ 0 đến 255.
+Các điểm ảnh màu đen có giá trị bằng không, các điểm ảnh càng trắng thì có giá
+trị càng cao
 ```python
 #%reset
 import numpy as np 
